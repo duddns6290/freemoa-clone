@@ -1,0 +1,40 @@
+package com.org.freemoaclone.User.Controller;
+
+import com.org.freemoaclone.User.DTO.LoginRequestDto;
+import com.org.freemoaclone.User.DTO.UserResponseDto;
+import com.org.freemoaclone.User.Service.UserService;
+import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/user")
+@RequiredArgsConstructor
+public class UserController {
+
+    private final UserService userService;
+
+    // 로그인
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequestDto request, HttpSession session) {
+        UserResponseDto user = userService.login(request.getUserId(), request.getUserPw());
+        session.setAttribute("loginUser", user);
+        return ResponseEntity.ok(user);
+    }
+
+    // 로그아웃
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpSession session) {
+        session.invalidate();
+        return ResponseEntity.ok("Logout");
+    }
+
+    // 유저 정보 조회
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getUser(@PathVariable("userId") Long userId) {
+        return ResponseEntity.ok(userService.getUser(userId));
+    }
+}
