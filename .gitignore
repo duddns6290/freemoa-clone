@@ -56,6 +56,9 @@ vite.svg
 .env.test.local
 .env.production.local
 
+### Spring ###
+src/main/resources/application.properties
+
 ### Logs ###
 logs
 *.log
@@ -63,3 +66,5 @@ logs
 ### OS ###
 .DS_Store
 Thumbs.db
+
+
