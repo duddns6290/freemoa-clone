@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Map;
 
 @RestController
@@ -36,5 +38,15 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<?> getUser(@PathVariable("userId") Long userId) {
         return ResponseEntity.ok(userService.getUser(userId));
+    }
+
+    // 프로필 이미지 업로드
+    @PostMapping("/{userId}/image")
+    public ResponseEntity<?> uploadImage(
+            @PathVariable Long userId,
+            @RequestParam("file") MultipartFile file) throws IOException {
+
+        String imagePath = userService.uploadProfileImage(userId, file);
+        return ResponseEntity.ok(Map.of("profileImage", imagePath));
     }
 }
