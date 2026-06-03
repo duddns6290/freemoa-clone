@@ -1,7 +1,10 @@
 package com.org.freemoaclone.User.Service;
 
+import com.org.freemoaclone.User.DTO.UpdateProfileRequestDto;
 import com.org.freemoaclone.User.DTO.UserResponseDto;
 import com.org.freemoaclone.User.Entity.User;
+import com.org.freemoaclone.User.Entity.UserField;
+import com.org.freemoaclone.User.Entity.UserTag;
 import com.org.freemoaclone.User.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -52,5 +55,40 @@ public class UserService {
         userRepository.save(user);
 
         return "/profile/" + fileName;
+    }
+
+    // 프로필 수정
+    public UserResponseDto updateProfile(Long userId, UpdateProfileRequestDto dto) {
+        User user = userRepository.findById(userId).orElseThrow(()->
+                new IllegalArgumentException("User not found"));
+
+        // 기본 정보 수정
+        user.setIsActive(dto.getIsActive());
+        user.setIsResident(dto.getIsResident());
+        user.setRegionCity(dto.getRegionCity());
+        user.setRegionDistrict(dto.getRegionDistrict());
+
+        user.setBusinessType(User.BusinessType.valueOf(dto.getBusinessType()));
+        user.setCareerYears(dto.getCareerYears());
+        user.setBio(dto.getBio());
+
+        // 태그 수정 (기존 정보 삭제 후 추가)
+        user.getTags().clear();
+        if(dto.getTags() != null) {
+            if(dto.getTags().size() > 5) {
+                throw new IllegalArgumentException("태그는 5개 이하로 입력");
+            }
+            dto.getTags().forEach(tag -> user.getTags().add(new UserTag(user, tag)));
+        }
+
+        // 분야 수정 (기존 정보 삭제 후 추가)
+        user.getFields().clear();
+        if(dto.getFields() != null) {
+            dto.getFields().forEach(field ->
+                    user.getFields().add(new UserField(user, field)));
+        }
+
+        userRepository.save(user);
+        return new UserResponseDto(user);
     }
 }

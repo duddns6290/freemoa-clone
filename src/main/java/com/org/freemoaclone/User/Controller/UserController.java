@@ -1,6 +1,7 @@
 package com.org.freemoaclone.User.Controller;
 
 import com.org.freemoaclone.User.DTO.LoginRequestDto;
+import com.org.freemoaclone.User.DTO.UpdateProfileRequestDto;
 import com.org.freemoaclone.User.DTO.UserResponseDto;
 import com.org.freemoaclone.User.Service.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -48,5 +49,14 @@ public class UserController {
 
         String imagePath = userService.uploadProfileImage(userId, file);
         return ResponseEntity.ok(Map.of("profileImage", imagePath));
+    }
+
+    // 프로필 정보 수정
+    @PutMapping("/{userId}")
+    public ResponseEntity<?> updateProfile(
+            @PathVariable Long userId,
+            @RequestBody UpdateProfileRequestDto dto) {
+
+        return ResponseEntity.ok(userService.updateProfile(userId, dto));
     }
 }
