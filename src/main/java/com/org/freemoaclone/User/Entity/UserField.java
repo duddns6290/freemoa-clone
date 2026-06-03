@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user_field")
-@Getter
 @NoArgsConstructor
 public class UserField {
 
@@ -18,6 +17,12 @@ public class UserField {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(nullable = false, length = 50, insertable = false, updatable = false)
-    private String field;
+    public UserField(User user, String field) {
+        this.id = new UserFieldId(user.getUserId(), field);
+        this.user = user;
+    }
+
+    public String getField() {
+        return id.getField();
+    }
 }

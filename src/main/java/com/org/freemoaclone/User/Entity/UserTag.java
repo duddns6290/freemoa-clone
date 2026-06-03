@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user_tag")
-@Getter
 @NoArgsConstructor
 public class UserTag {
 
@@ -18,6 +17,12 @@ public class UserTag {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "search_tags", nullable = false, length = 100, insertable = false, updatable = false)
-    private String searchTags;
+    public UserTag(User user, String searchTags) {
+        this.id = new UserTagId(user.getUserId(), searchTags);
+        this.user = user;
+    }
+
+    public String getSearchTags() {
+        return id.getSearchTags();
+    }
 }

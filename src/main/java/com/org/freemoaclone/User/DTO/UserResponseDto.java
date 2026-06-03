@@ -36,9 +36,9 @@ public class UserResponseDto {
         this.userId = user.getUserId();
         this.userName = user.getUserName();
         this.profileImage = user.getProfileImage();
-        this.role = user.getRole().name();
+        this.role = user.getRole() != null ? user.getRole().name() : null;
         this.careerYears = user.getCareerYears();
-        this.businessType = user.getBusinessType().name();
+        this.businessType = user.getBusinessType() != null ? user.getBusinessType().name() : null;
         this.regionCity = user.getRegionCity();
         this.regionDistrict = user.getRegionDistrict();
         this.bio = user.getBio();
