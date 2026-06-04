@@ -16,6 +16,9 @@ public class User {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "login_id")
+    private String loginId;
+
     @Column(name = "user_pw", nullable = false)
     private String userPw;
 
