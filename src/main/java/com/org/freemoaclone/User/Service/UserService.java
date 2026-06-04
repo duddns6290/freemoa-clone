@@ -21,8 +21,8 @@ public class UserService {
     private final UserRepository userRepository;
 
     // Login
-    public UserResponseDto login(Long userId, String userPw) {
-        User user = userRepository.findById(userId).orElseThrow(()->
+    public UserResponseDto login(String loginId, String userPw) {
+        User user = userRepository.findByLoginId(loginId).orElseThrow(()->
                 new IllegalArgumentException("User not found"));
         if (!user.getUserPw().equals(userPw)) {
             throw new IllegalArgumentException("Wrong Password");
