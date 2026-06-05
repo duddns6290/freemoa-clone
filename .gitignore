@@ -50,14 +50,11 @@ src/main/front/build/
 vite.svg
 
 ### Environment ###
-.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-### Spring ###
-src/main/resources/application.properties
 
 ### Logs ###
 logs
