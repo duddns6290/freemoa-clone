@@ -50,6 +50,7 @@ src/main/front/build/
 vite.svg
 
 ### Environment ###
+.env
 .env.local
 .env.development.local
 .env.test.local
