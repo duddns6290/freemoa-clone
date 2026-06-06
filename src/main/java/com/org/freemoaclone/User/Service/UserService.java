@@ -42,19 +42,18 @@ public class UserService {
                 new IllegalArgumentException("User not found"));
 
         // 저장 폴더
-        String uploadPath = System.getProperty("user.dir") + "/upload/profile/";
+        String uploadPath = System.getProperty("user.dir") + "/uploads/";
         File dir = new File(uploadPath);
         if(!dir.exists()) dir.mkdirs();
 
-        String fileName = UUID.randomUUID() + "_" +  file.getOriginalFilename();
+        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
         File dest = new File(uploadPath + fileName);
         file.transferTo(dest);
 
-        // DB 경로 저장
-        user.setProfileImage("/profile/" + fileName);
+        user.setProfileImage(fileName);
         userRepository.save(user);
 
-        return "/profile/" + fileName;
+        return fileName;
     }
 
     // 프로필 수정

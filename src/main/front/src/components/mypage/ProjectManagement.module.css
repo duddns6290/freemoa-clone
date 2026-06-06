@@ -1,0 +1,180 @@
+.wrap {
+  padding: 24px;
+}
+
+/* 필터 + 검색 */
+.filterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filterBtn {
+  padding: 7px 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.activeFilter {
+  border-color: #222;
+  color: #222;
+  font-weight: 700;
+  background: #fff;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 12px;
+  gap: 8px;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  padding: 8px 0;
+  width: 160px;
+  color: #333;
+}
+
+.searchIcon { font-size: 14px; color: #aaa; cursor: pointer; }
+
+/* 상태 탭 */
+.statusRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0;
+  margin-bottom: 32px;
+  gap: 2px;
+}
+
+.statusGroup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.statusTab {
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+
+.activeStatusTab {
+  color: #ff6b00;
+  border-bottom-color: #ff6b00;
+  font-weight: 700;
+}
+
+.arrow {
+  font-size: 11px;
+  color: #bbb;
+  padding: 0 2px;
+}
+
+/* 빈 상태 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  gap: 12px;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  color: #ff6b00;
+}
+
+.emptyTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: #333;
+}
+
+.emptyIllustration {
+  font-size: 80px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.emptyDesc {
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* 프로젝트 목록 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.projectRow:hover { border-color: #ff6b00; }
+
+.projectInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fieldTag {
+  padding: 3px 10px;
+  border: 1px solid #ff6b00;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #ff6b00;
+}
+
+.projectTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.projectMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #888;
+}
