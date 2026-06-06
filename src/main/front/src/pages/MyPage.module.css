@@ -1,0 +1,203 @@
+.page {
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+.banner {
+  background: #29c6e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 14px 24px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.bannerBtn {
+  padding: 8px 20px;
+  background: #fff;
+  color: #29c6e0;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.body {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileImgWrap {
+  margin-bottom: 4px;
+}
+
+.profileImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eee;
+}
+
+.profileImgDefault {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #ff6b00;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  word-break: break-all;
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid #29c6e0;
+  color: #29c6e0;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.starEmpty {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.ratingText {
+  font-size: 12px;
+  color: #888;
+  margin-left: 4px;
+}
+
+.statList {
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+}
+
+.statRow span:last-child {
+  font-weight: 600;
+  color: #222;
+}
+
+.profileViewBtn {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border: 1.5px solid #ff6b00;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #ff6b00;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.profileViewBtn:hover {
+  background: #fff5ee;
+}
+
+.switchBtn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ── Content ── */
+.content {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabBar {
+  display: flex;
+  border-bottom: 2px solid #eee;
+}
+
+.tabBtn {
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tabBtn:hover { color: #333; }
+
+.activeTabBtn {
+  color: #222;
+  font-weight: 700;
+  background: #f0f0f0;
+  border-bottom-color: #222;
+}
+
+.emptyTab {
+  padding: 80px;
+  text-align: center;
+  color: #aaa;
+  font-size: 15px;
+}

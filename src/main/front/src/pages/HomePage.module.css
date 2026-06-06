@@ -1,0 +1,430 @@
+.page {
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, #fdf3e7 0%, #fdf3e7 40%, #e8f4fb 100%);
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+
+.heroText {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 24px;
+}
+
+.heroLine1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+  min-height: 50px;
+}
+
+.heroAnimated {
+  display: inline-block;
+  animation: slideIn 0.4s ease;
+  text-decoration: line-through;
+  text-decoration-color: #ff6b00;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.heroLine2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #222;
+}
+
+.orange {
+  color: #ff6b00;
+}
+
+/* ── Partner Marquee ── */
+.marqueeWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.marqueeRow {
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+.marqueeRow::-webkit-scrollbar {
+  display: none;
+}
+
+.partnerCard {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 30px;
+  padding: 8px 16px 8px 8px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.partnerAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ff6b00;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.partnerName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+}
+
+.partnerType {
+  font-size: 11px;
+  color: #888;
+}
+
+/* ── Search ── */
+.searchSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  padding: 0 24px;
+}
+
+.searchBox {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #ff6b00;
+  border-radius: 8px;
+  padding: 0 16px;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  padding: 16px 0;
+  background: transparent;
+}
+
+.searchInput::placeholder {
+  color: #bbb;
+}
+
+.searchIcon {
+  font-size: 18px;
+  color: #ff6b00;
+  cursor: pointer;
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ctaPrimary {
+  width: 160px;
+  padding: 14px;
+  background: #ff6b00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ctaPrimary:hover {
+  background: #e55e00;
+}
+
+.ctaOr {
+  font-size: 13px;
+  color: #888;
+}
+
+.ctaSecondary {
+  width: 160px;
+  padding: 13px;
+  background: #fff;
+  color: #333;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ctaSecondary:hover {
+  border-color: #ff6b00;
+  color: #ff6b00;
+}
+
+.pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pill {
+  padding: 6px 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.pill:hover {
+  border-color: #ff6b00;
+  color: #ff6b00;
+}
+
+/* ── Projects Section ── */
+.projectsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.projectsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+}
+
+.moreBtn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+}
+
+.moreBtn:hover {
+  color: #ff6b00;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 16px;
+  gap: 0;
+}
+
+.tab {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-weight: 500;
+}
+
+.tab:hover {
+  color: #ff6b00;
+}
+
+.activeTab {
+  color: #ff6b00;
+  font-weight: 700;
+  border-bottom-color: #ff6b00;
+}
+
+/* Sort */
+.sortRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.sortBtn {
+  padding: 5px 14px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.activeSortBtn {
+  border-color: #ff6b00;
+  color: #ff6b00;
+  font-weight: 600;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: #aaa;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* Project Card */
+.projectCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.projectCard:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-color: #ff6b00;
+}
+
+.fieldTag {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1.5px solid #ff6b00;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #ff6b00;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.projectTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.budgetRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.budgetLabel {
+  font-size: 13px;
+  color: #888;
+}
+
+.budgetValue {
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #888;
+}
+
+.statValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.statsRow .divider {
+  color: #ddd;
+  font-size: 12px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.pageBtn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.activePageBtn {
+  background: #ff6b00;
+  border-color: #ff6b00;
+  color: #fff;
+  font-weight: 700;
+}
