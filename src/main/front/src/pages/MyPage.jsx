@@ -48,7 +48,7 @@ export default function MyPage() {
         <aside className={styles.sidebar}>
           <div className={styles.profileImgWrap}>
             {user.profileImage ? (
-              <img src={`/uploads/${user.profileImage}`} className={styles.profileImg} alt="" />
+              <img src={`/base_img/${user.profileImage}`} className={styles.profileImg} alt="" />
             ) : (
               <div className={styles.profileImgDefault}>{user.userName?.[0] ?? 'U'}</div>
             )}

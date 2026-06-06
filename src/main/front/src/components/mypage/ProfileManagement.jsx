@@ -119,7 +119,7 @@ export default function ProfileManagement({ user }) {
             <label className={styles.formLabel}>프로필 이미지</label>
             <div className={styles.imageArea}>
               {profileImage ? (
-                <img src={`/uploads/${profileImage}`} className={styles.previewImg} alt="" />
+                <img src={`/base_img/${profileImage}`} className={styles.previewImg} alt="" />
               ) : (
                 <div className={styles.previewDefault}>👤</div>
               )}
