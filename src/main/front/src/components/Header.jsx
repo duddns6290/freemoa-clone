@@ -51,7 +51,7 @@ export default function Header() {
                   onClick={() => setDropdownOpen((v) => !v)}
                 >
                   {user.profileImage ? (
-                    <img src={`/uploads/${user.profileImage}`} className={styles.avatarImg} alt="" />
+                    <img src={`/base_img/${user.profileImage}`} className={styles.avatarImg} alt="" />
                   ) : (
                     <div className={styles.avatarDefault}>{user.userName?.[0] ?? 'U'}</div>
                   )}
