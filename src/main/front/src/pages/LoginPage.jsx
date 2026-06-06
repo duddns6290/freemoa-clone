@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import styles from './LoginPage.module.css'
 
 export default function LoginPage() {
-  const [userId, setUserId] = useState('')
+  const [loginId, setLoginId] = useState('')
   const [userPw, setUserPw] = useState('')
   const [showPw, setShowPw] = useState(false)
   const [error, setError] = useState('')
@@ -22,7 +22,7 @@ export default function LoginPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ userId: Number(userId), userPw }),
+        body: JSON.stringify({ loginId, userPw }),
       })
       if (!res.ok) {
         setError('아이디 또는 비밀번호가 올바르지 않습니다.')
@@ -88,9 +88,9 @@ export default function LoginPage() {
               <div className={styles.inputWrap}>
                 <span className={styles.inputIcon}>👤</span>
                 <input
-                  type="number"
-                  value={userId}
-                  onChange={(e) => setUserId(e.target.value)}
+                  type="text"
+                  value={loginId}
+                  onChange={(e) => setLoginId(e.target.value)}
                   placeholder="아이디"
                   required
                   className={styles.input}
