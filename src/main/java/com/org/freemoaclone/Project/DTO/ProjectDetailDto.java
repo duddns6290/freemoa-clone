@@ -23,7 +23,9 @@ public class ProjectDetailDto {
     private String recommendRegion;
     private String description;
     private String projectType;
+    private String techStack;
     private String prepareStatus;
+    private Long clientUserId;
     private LocalDate hopeStartDate;
     private LocalDateTime createdAt;
 
@@ -42,7 +44,9 @@ public class ProjectDetailDto {
         this.recommendRegion = project.getRecommendRegion();
         this.description = project.getDescription();
         this.projectType = project.getProjectType() != null ? project.getProjectType().name() : null;
+        this.techStack = project.getTechStack();
         this.prepareStatus = project.getPrepareStatus();
+        this.clientUserId = project.getUser() != null ? project.getUser().getUserId() : null;
         this.hopeStartDate = project.getHopeStartDate();
         this.createdAt = project.getCreatedAt();
     }

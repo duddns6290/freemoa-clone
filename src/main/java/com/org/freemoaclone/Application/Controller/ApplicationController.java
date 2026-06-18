@@ -1,5 +1,6 @@
 package com.org.freemoaclone.Application.Controller;
 
+import com.org.freemoaclone.Application.DTO.ApplicationRequestDto;
 import com.org.freemoaclone.Application.Service.ApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +13,13 @@ public class ApplicationController {
 
     private final ApplicationService applicationService;
 
-    // 프로젝트 지원
+    // 프로젝트 지원 (지원서 내용 포함)
     @PostMapping("/projects/{projectId}/apply")
     public ResponseEntity<?> apply(
             @PathVariable Long projectId,
-            @RequestParam Long userId) {
+            @RequestBody ApplicationRequestDto dto) {
 
-        applicationService.apply(projectId, userId);
+        applicationService.apply(projectId, dto);
         return ResponseEntity.ok("지원 완료");
     }
 
@@ -28,9 +29,17 @@ public class ApplicationController {
         return ResponseEntity.ok(applicationService.getMyApplications(userId));
     }
 
-    // 내 프로젝트에 지원한 유저 목록 조회
+    // 지원서 단건 조회
+    @GetMapping("/applications/{applicationId}")
+    public ResponseEntity<?> getApplication(@PathVariable Long applicationId) {
+        return ResponseEntity.ok(applicationService.getApplication(applicationId));
+    }
+
+    // 특정 프로젝트의 지원자 목록 (더보기 페이징)
     @GetMapping("/projects/{projectId}/applicants")
-    public ResponseEntity<?> getApplicants(@PathVariable Long projectId) {
-        return ResponseEntity.ok(applicationService.getApplicants(projectId));
+    public ResponseEntity<?> getApplicants(
+            @PathVariable Long projectId,
+            @RequestParam(defaultValue = "0") int page) {
+        return ResponseEntity.ok(applicationService.getApplicants(projectId, page));
     }
 }

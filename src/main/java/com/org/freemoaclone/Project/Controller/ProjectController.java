@@ -1,6 +1,6 @@
 package com.org.freemoaclone.Project.Controller;
 
-import com.org.freemoaclone.Project.DTO.ProjectDetailDto;
+import com.org.freemoaclone.Project.DTO.ProjectRequestDto;
 import com.org.freemoaclone.Project.DTO.ProjectResponseDto;
 import com.org.freemoaclone.Project.Service.ProjectService;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +30,17 @@ public class ProjectController {
     @GetMapping("/{projectId}")
     public ResponseEntity<?> getProject(@PathVariable Long projectId) {
         return ResponseEntity.ok(projectService.getProject(projectId));
+    }
+
+    // 프로젝트 생성 (의뢰인)
+    @PostMapping
+    public ResponseEntity<?> createProject(@RequestBody ProjectRequestDto dto) {
+        return ResponseEntity.ok(projectService.createProject(dto));
+    }
+
+    // 의뢰인이 등록한 프로젝트 목록
+    @GetMapping("/my/{userId}")
+    public ResponseEntity<?> getMyProjects(@PathVariable Long userId) {
+        return ResponseEntity.ok(projectService.getMyProjects(userId));
     }
 }

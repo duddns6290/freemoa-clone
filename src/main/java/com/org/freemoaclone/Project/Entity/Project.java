@@ -70,6 +70,9 @@ public class Project {
     @Column(name = "hope_start_date")
     private LocalDate hopeStartDate;
 
+    @Column(name = "tech_stack")
+    private String techStack;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

@@ -30,6 +30,27 @@ public class Application {
     @Column(name = "applied_at")
     private LocalDateTime appliedAt;
 
+    // 도급 지원서 필드
+    @Column(name = "work_days")
+    private Integer workDays;
+
+    @Column(name = "bid_amount")
+    private Integer bidAmount;
+
+    // 상주 지원서 필드
+    @Column(name = "skill_type")
+    private String skillType;
+
+    @Column(name = "career_level")
+    private String careerLevel;
+
+    @Column(name = "salary")
+    private Integer salary;
+
+    // 공통
+    @Column(name = "cover_letter", columnDefinition = "TEXT")
+    private String coverLetter;
+
     @PrePersist
     public void prePersist() {
         this.appliedAt = LocalDateTime.now();
@@ -38,5 +59,17 @@ public class Application {
     public Application(Project project, User user) {
         this.project = project;
         this.user = user;
+    }
+
+    public Application(Project project, User user, Integer workDays, Integer bidAmount,
+                       String skillType, String careerLevel, Integer salary, String coverLetter) {
+        this.project = project;
+        this.user = user;
+        this.workDays = workDays;
+        this.bidAmount = bidAmount;
+        this.skillType = skillType;
+        this.careerLevel = careerLevel;
+        this.salary = salary;
+        this.coverLetter = coverLetter;
     }
 }

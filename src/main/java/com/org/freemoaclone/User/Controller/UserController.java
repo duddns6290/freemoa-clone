@@ -35,6 +35,16 @@ public class UserController {
         return ResponseEntity.ok("Logout");
     }
 
+    // 현재 세션 유저 조회
+    @GetMapping("/me")
+    public ResponseEntity<?> me(HttpSession session) {
+        UserResponseDto loginUser = (UserResponseDto) session.getAttribute("loginUser");
+        if (loginUser == null) {
+            return ResponseEntity.status(401).body("로그인이 필요합니다.");
+        }
+        return ResponseEntity.ok(loginUser);
+    }
+
     // 유저 정보 조회
     @GetMapping("/{userId}")
     public ResponseEntity<?> getUser(@PathVariable("userId") Long userId) {

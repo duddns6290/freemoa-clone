@@ -20,6 +20,7 @@ public class ProjectResponseDto {
     private Integer applyCount;
     private String nextStep;
     private String projectType;
+    private String techStack;
     private LocalDate hopeStartDate;
     private LocalDateTime createdAt;
 
@@ -35,6 +36,7 @@ public class ProjectResponseDto {
         this.applyCount = project.getApplyCount();
         this.nextStep = project.getNextStep();
         this.projectType = project.getProjectType() != null ? project.getProjectType().name() : null;
+        this.techStack = project.getTechStack();
         this.hopeStartDate = project.getHopeStartDate();
         this.createdAt = project.getCreatedAt();
     }

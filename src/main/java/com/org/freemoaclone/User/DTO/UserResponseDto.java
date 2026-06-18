@@ -3,6 +3,7 @@ package com.org.freemoaclone.User.DTO;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.org.freemoaclone.User.Entity.User;
 import lombok.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -18,7 +19,7 @@ import java.util.List;
         "fields",
         "tags",
         "bio",})
-public class UserResponseDto {
+public class UserResponseDto implements Serializable {
 
     private Long userId;
     private String userName;
