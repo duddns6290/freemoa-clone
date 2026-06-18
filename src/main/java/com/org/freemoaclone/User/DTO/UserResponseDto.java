@@ -18,7 +18,9 @@ import java.util.List;
         "regionDistrict",
         "fields",
         "tags",
-        "bio",})
+        "bio",
+        "isActive",
+        "isResident",})
 public class UserResponseDto implements Serializable {
 
     private Long userId;
@@ -30,6 +32,8 @@ public class UserResponseDto implements Serializable {
     private String regionCity;
     private String regionDistrict;
     private String bio;
+    private Boolean isActive;
+    private Boolean isResident;
     private List<String> fields;
     private List<String> tags;
 
@@ -43,6 +47,8 @@ public class UserResponseDto implements Serializable {
         this.regionCity = user.getRegionCity();
         this.regionDistrict = user.getRegionDistrict();
         this.bio = user.getBio();
+        this.isActive = user.getIsActive();
+        this.isResident = user.getIsResident();
 
         this.fields = user.getFields().stream()
                 .map(f -> f.getField())

@@ -32,11 +32,7 @@ export default function Header() {
         <div className={styles.left}>
           <span className={styles.logo} onClick={() => navigate('/')}>freemoa</span>
           <nav className={styles.nav}>
-            <a href="#">프로젝트</a>
-            <a href="#">파트너스</a>
-            <a href="#">포트폴리오 검색</a>
-            <a href="#">이용후기</a>
-            <a href="#">더보기 ▾</a>
+            <a onClick={() => navigate('/')} style={{cursor:'pointer'}}>프로젝트</a>
           </nav>
         </div>
 
@@ -50,11 +46,11 @@ export default function Header() {
                   className={styles.avatarBtn}
                   onClick={() => setDropdownOpen((v) => !v)}
                 >
-                  {user.profileImage ? (
-                    <img src={`/base_img/${user.profileImage}`} className={styles.avatarImg} alt="" />
-                  ) : (
-                    <div className={styles.avatarDefault}>{user.userName?.[0] ?? 'U'}</div>
-                  )}
+                  <img
+                    src={user.profileImage ? `/base_img/${user.profileImage}` : '/base_img/profile_base_img.png'}
+                    className={styles.avatarImg}
+                    alt=""
+                  />
                   <span className={styles.avatarArrow}>▾</span>
                 </button>
 
@@ -62,9 +58,8 @@ export default function Header() {
                   <div className={styles.dropdown}>
                     <button onClick={() => { navigate('/mypage'); setDropdownOpen(false) }}>마이페이지</button>
                     <button onClick={() => { navigate('/mypage?tab=projects'); setDropdownOpen(false) }}>프로젝트 관리</button>
-                    <button onClick={() => { navigate('/mypage?tab=profile'); setDropdownOpen(false) }}>프로필 관리</button>
-                    <button>회원전환</button>
-                    <button onClick={handleLogout}>로그아웃</button>
+                    {user?.role !== 'client' && <button onClick={() => { navigate('/mypage?tab=profile'); setDropdownOpen(false) }}>프로필 관리</button>}
+<button onClick={handleLogout}>로그아웃</button>
                   </div>
                 )}
               </div>

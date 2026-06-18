@@ -35,7 +35,7 @@ public class Application {
     private Integer workDays;
 
     @Column(name = "bid_amount")
-    private Integer bidAmount;
+    private Long bidAmount;
 
     // 상주 지원서 필드
     @Column(name = "skill_type")
@@ -45,7 +45,7 @@ public class Application {
     private String careerLevel;
 
     @Column(name = "salary")
-    private Integer salary;
+    private Long salary;
 
     // 공통
     @Column(name = "cover_letter", columnDefinition = "TEXT")
@@ -61,8 +61,8 @@ public class Application {
         this.user = user;
     }
 
-    public Application(Project project, User user, Integer workDays, Integer bidAmount,
-                       String skillType, String careerLevel, Integer salary, String coverLetter) {
+    public Application(Project project, User user, Integer workDays, Long bidAmount,
+                       String skillType, String careerLevel, Long salary, String coverLetter) {
         this.project = project;
         this.user = user;
         this.workDays = workDays;

@@ -42,7 +42,7 @@ public class UserService {
                 new IllegalArgumentException("User not found"));
 
         // 저장 폴더
-        String uploadPath = System.getProperty("user.dir") + "/uploads/";
+        String uploadPath = System.getProperty("user.dir") + "/base_img/";
         File dir = new File(uploadPath);
         if(!dir.exists()) dir.mkdirs();
 

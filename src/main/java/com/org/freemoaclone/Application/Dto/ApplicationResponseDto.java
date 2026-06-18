@@ -1,4 +1,4 @@
-package com.org.freemoaclone.Application.DTO;
+package com.org.freemoaclone.Application.Dto;
 
 import com.org.freemoaclone.Application.Entity.Application;
 import lombok.AllArgsConstructor;
@@ -23,10 +23,10 @@ public class ApplicationResponseDto {
 
     // 지원서 내용
     private Integer workDays;
-    private Integer bidAmount;
+    private Long bidAmount;
     private String skillType;
     private String careerLevel;
-    private Integer salary;
+    private Long salary;
     private String coverLetter;
 
     public static ApplicationResponseDto from(Application application) {

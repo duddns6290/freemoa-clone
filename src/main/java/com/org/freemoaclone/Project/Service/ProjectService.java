@@ -23,17 +23,16 @@ public class ProjectService {
     // 프로젝트 목록 조회 (필터, 정렬, 페이징)
     public Page<ProjectResponseDto> getProjects(String recruitType, String sort, int page) {
         Sort sorting = switch (sort) {
-            case "latest" -> Sort.by(Sort.Direction.DESC, "createdAt");
             case "budget_high" -> Sort.by(Sort.Direction.DESC, "budgetMax");
-            case "budget_low" -> Sort.by(Sort.Direction.ASC, "budgetMin");
-            case "deadline" -> Sort.by(Sort.Direction.ASC, "hopeStartDate");
-            default -> Sort.by(Sort.Direction.DESC, "createdAt");
+            case "budget_low"  -> Sort.by(Sort.Direction.ASC,  "budgetMin");
+            case "deadline"    -> Sort.by(Sort.Direction.ASC,  "hopeStartDate");
+            default            -> Sort.by(Sort.Direction.DESC, "createdAt");
         };
 
         Pageable pageable = PageRequest.of(page, 4, sorting);
 
         Page<Project> projects;
-        if (recruitType == null || recruitType.equals("all")) {
+        if (recruitType == null || recruitType.isBlank() || recruitType.equals("all")) {
             projects = projectRepository.findAll(pageable);
         } else {
             projects = projectRepository.findByRecruitType(

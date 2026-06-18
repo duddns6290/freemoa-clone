@@ -1,6 +1,6 @@
 package com.org.freemoaclone.Application.Controller;
 
-import com.org.freemoaclone.Application.DTO.ApplicationRequestDto;
+import com.org.freemoaclone.Application.Dto.ApplicationRequestDto;
 import com.org.freemoaclone.Application.Service.ApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +18,33 @@ public class ApplicationController {
     public ResponseEntity<?> apply(
             @PathVariable Long projectId,
             @RequestBody ApplicationRequestDto dto) {
+        try {
+            applicationService.apply(projectId, dto);
+            return ResponseEntity.ok("지원 완료");
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
-        applicationService.apply(projectId, dto);
-        return ResponseEntity.ok("지원 완료");
+    // 특정 프로젝트에 이미 지원했는지 확인
+    @GetMapping("/projects/{projectId}/applied")
+    public ResponseEntity<?> hasApplied(
+            @PathVariable Long projectId,
+            @RequestParam Long userId) {
+        boolean applied = applicationService.hasApplied(projectId, userId);
+        return ResponseEntity.ok(applied);
+    }
+
+    // 내가 특정 프로젝트에 제출한 지원서 조회
+    @GetMapping("/projects/{projectId}/my-application")
+    public ResponseEntity<?> getMyApplication(
+            @PathVariable Long projectId,
+            @RequestParam Long userId) {
+        try {
+            return ResponseEntity.ok(applicationService.getMyApplication(projectId, userId));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     // 내가 지원한 프로젝트 목록 조회

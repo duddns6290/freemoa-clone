@@ -49,6 +49,7 @@ CREATE TABLE project (
                          project_type     ENUM('planning', 'design', 'development', 'maintenance', 'upgrade'),
                          prepare_status   VARCHAR(100),
                          hope_start_date  DATE,
+                         tech_stack       VARCHAR(500),
                          created_at       DATETIME DEFAULT NOW(),
                          FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
@@ -59,6 +60,12 @@ CREATE TABLE application (
                              project_id     BIGINT NOT NULL,
                              user_id        BIGINT NOT NULL,
                              applied_at     DATETIME DEFAULT NOW(),
+                             work_days      INT,
+                             bid_amount     INT,
+                             skill_type     VARCHAR(100),
+                             career_level   VARCHAR(100),
+                             salary         INT,
+                             cover_letter   TEXT,
                              FOREIGN KEY (project_id) REFERENCES project(project_id),
                              FOREIGN KEY (user_id)    REFERENCES users(user_id)
 );

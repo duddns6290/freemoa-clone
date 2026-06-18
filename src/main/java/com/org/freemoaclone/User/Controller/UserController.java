@@ -55,9 +55,15 @@ public class UserController {
     @PostMapping("/{userId}/image")
     public ResponseEntity<?> uploadImage(
             @PathVariable Long userId,
-            @RequestParam("file") MultipartFile file) throws IOException {
+            @RequestParam("file") MultipartFile file,
+            HttpSession session) throws IOException {
 
         String imagePath = userService.uploadProfileImage(userId, file);
+        UserResponseDto loginUser = (UserResponseDto) session.getAttribute("loginUser");
+        if (loginUser != null) {
+            UserResponseDto updated = userService.getUser(userId);
+            session.setAttribute("loginUser", updated);
+        }
         return ResponseEntity.ok(Map.of("profileImage", imagePath));
     }
 
@@ -65,8 +71,11 @@ public class UserController {
     @PutMapping("/{userId}")
     public ResponseEntity<?> updateProfile(
             @PathVariable Long userId,
-            @RequestBody UpdateProfileRequestDto dto) {
+            @RequestBody UpdateProfileRequestDto dto,
+            HttpSession session) {
 
-        return ResponseEntity.ok(userService.updateProfile(userId, dto));
+        UserResponseDto updated = userService.updateProfile(userId, dto);
+        session.setAttribute("loginUser", updated);
+        return ResponseEntity.ok(updated);
     }
 }

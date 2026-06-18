@@ -35,7 +35,11 @@ public class ProjectController {
     // 프로젝트 생성 (의뢰인)
     @PostMapping
     public ResponseEntity<?> createProject(@RequestBody ProjectRequestDto dto) {
-        return ResponseEntity.ok(projectService.createProject(dto));
+        try {
+            return ResponseEntity.ok(projectService.createProject(dto));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     // 의뢰인이 등록한 프로젝트 목록

@@ -1,7 +1,7 @@
 package com.org.freemoaclone.Application.Service;
 
-import com.org.freemoaclone.Application.DTO.ApplicationRequestDto;
-import com.org.freemoaclone.Application.DTO.ApplicationResponseDto;
+import com.org.freemoaclone.Application.Dto.ApplicationRequestDto;
+import com.org.freemoaclone.Application.Dto.ApplicationResponseDto;
 import com.org.freemoaclone.Application.Entity.Application;
 import com.org.freemoaclone.Application.Repository.ApplicationRepository;
 import com.org.freemoaclone.Project.Entity.Project;
@@ -50,6 +50,24 @@ public class ApplicationService {
 
         project.setApplyCount(project.getApplyCount() + 1);
         projectRepository.save(project);
+    }
+
+    public ApplicationResponseDto getMyApplication(Long projectId, Long userId) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new IllegalArgumentException("프로젝트를 찾을 수 없습니다."));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("유저를 찾을 수 없습니다."));
+        Application app = applicationRepository.findByProjectAndUser(project, user)
+                .orElseThrow(() -> new IllegalArgumentException("지원서를 찾을 수 없습니다."));
+        return ApplicationResponseDto.from(app);
+    }
+
+    public boolean hasApplied(Long projectId, Long userId) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new IllegalArgumentException("프로젝트를 찾을 수 없습니다."));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("유저를 찾을 수 없습니다."));
+        return applicationRepository.existsByProjectAndUser(project, user);
     }
 
     public List<ApplicationResponseDto> getMyApplications(Long userId) {

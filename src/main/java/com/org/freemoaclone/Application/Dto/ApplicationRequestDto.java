@@ -1,4 +1,4 @@
-package com.org.freemoaclone.Application.DTO;
+package com.org.freemoaclone.Application.Dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,12 +11,12 @@ public class ApplicationRequestDto {
 
     // 도급
     private Integer workDays;
-    private Integer bidAmount;
+    private Long bidAmount;
 
     // 상주
     private String skillType;
     private String careerLevel;
-    private Integer salary;
+    private Long salary;
 
     // 공통
     private String coverLetter;
